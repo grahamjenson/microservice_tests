@@ -20,7 +20,7 @@ install:
 
 script:
   - pmux microservice_configuration.js  -v
-  - sleep 10
+  - sleep 20
   - mocha
 
 
