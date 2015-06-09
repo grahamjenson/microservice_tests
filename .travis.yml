@@ -10,10 +10,14 @@ env:
   - SERVICE_A_VERSION=v2 SERVICE_B_VERSION=v2
   - SERVICE_A_VERSION=v2 SERVICE_B_VERSION=v3  
 
-install:
+
+before_install:
  - sudo apt-get update
  - sudo apt-get install -y git-core
  - sudo apt-get install -y tmux
+
+install:
+ - node --version
  - npm version
  - npm install -g pmux
  - npm install
