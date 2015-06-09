@@ -8,24 +8,25 @@ var serviceBversion = process.env.SERVICE_B_VERSION
 var configuration = {
   "name": "microservices",
   "pre_commands": [
-    "touch log",
     "rm -rf " + microservices_directory,
-    "mkdir " + microservices_directory,
-    "cd " + microservices_directory + ";git clone " + serviceArepo + " -b " + serviceAversion + " ",
-    "cd " + microservices_directory + ";git clone " + serviceBrepo + " -b " + serviceBversion + " "
+    "mkdir " + microservices_directory
   ],
   "windows": {
     "serviceA": {
       "commands": [
-        "node service.js >> ../../log"
+        "git clone " + serviceArepo + " -b " + serviceAversion,
+        "cd microservice_A",
+        "node service.js"
       ],
-      "dir" : microservices_directory + "/microservice_A"
+      "dir" : microservices_directory
     },
     "serviceB": {
       "commands": [
-        "node service.js >> ../../log"
+        "git clone " + serviceBrepo + " -b " + serviceBversion,
+        "cd microservice_B",
+        "node service.js"
       ],
-      "dir" : microservices_directory + "/microservice_B"
+      "dir" : microservices_directory
     }
   }
 }

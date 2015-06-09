@@ -10,15 +10,10 @@ env:
   - SERVICE_A_VERSION=v2 SERVICE_B_VERSION=v2
   - SERVICE_A_VERSION=v2 SERVICE_B_VERSION=v3  
 
-
-before_install:
+install:
  - sudo apt-get update
  - sudo apt-get install -y git-core
  - sudo apt-get install -y tmux
-
-install:
- - node --version
- - npm version
  - npm install -g pmux
  - npm install
 
@@ -26,7 +21,3 @@ script:
   - pmux microservice_configuration.js  -v
   - sleep 2
   - mocha
-
-
-after_script:
-  - cat log
