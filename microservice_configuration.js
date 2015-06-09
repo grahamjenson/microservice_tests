@@ -10,24 +10,22 @@ var configuration = {
   "pre_commands": [
     "touch log",
     "rm -rf " + microservices_directory,
-    "mkdir " + microservices_directory
+    "mkdir " + microservices_directory,
+    "cd " + microservices_directory + ";git clone " + serviceArepo + " -b " + serviceAversion + " ",
+    "cd " + microservices_directory + ";git clone " + serviceBrepo + " -b " + serviceBversion + " "
   ],
   "windows": {
     "serviceA": {
       "commands": [
-        "git clone " + serviceArepo + " -b " + serviceAversion,
-        "cd microservice_A",
         "node service.js >> ../../log"
       ],
-      "dir" : microservices_directory
+      "dir" : microservices_directory + "/microservice_A"
     },
     "serviceB": {
       "commands": [
-        "git clone " + serviceBrepo + " -b " + serviceBversion,
-        "cd microservice_B",
         "node service.js >> ../../log"
       ],
-      "dir" : microservices_directory
+      "dir" : microservices_directory + "/microservice_B"
     }
   }
 }
