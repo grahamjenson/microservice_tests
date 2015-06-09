@@ -1,6 +1,6 @@
 var microservices_directory = "services_dir"
-var serviceArepo = "git@github.com:grahamjenson/microservice_A.git"
-var serviceBrepo = "git@github.com:grahamjenson/microservice_B.git"
+var serviceArepo = "https://github.com/grahamjenson/microservice_A"
+var serviceBrepo = "https://github.com/grahamjenson/microservice_B"
 
 var serviceAversion = process.env.SERVICE_A_VERSION
 var serviceBversion = process.env.SERVICE_B_VERSION
