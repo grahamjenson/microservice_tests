@@ -3,11 +3,12 @@ node_js:
   - "0.12"
 
 env:
-  - SERVICE_A_VERSION=v1
-  - SERVICE_A_VERSION=v2
-  - SERVICE_B_VERSION=v1
-  - SERVICE_B_VERSION=v2
-  - SERVICE_B_VERSION=v3
+  matrix:
+    - SERVICE_A_VERSION=v1
+    - SERVICE_A_VERSION=v2
+    - SERVICE_B_VERSION=v1
+    - SERVICE_B_VERSION=v2
+    - SERVICE_B_VERSION=v3
 
 install:
  - sudo apt-get update
