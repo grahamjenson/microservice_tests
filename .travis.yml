@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+  - "0.12"
+
+env:
+  - SERVICE_A_VERSION=v1
+  - SERVICE_A_VERSION=v2
+  - SERVICE_B_VERSION=v1
+  - SERVICE_B_VERSION=v2
+  - SERVICE_B_VERSION=v3
+
+install:
+ - sudo apt-get update
+ - sudo apt-get install -y git-core
+ - sudo apt-get install -y tmux
+ - npm version
+ - npm install -g pmux
+ - npm install
+
+script:
+  - pmux microservice_configuration.js  -v
+  - sleep 10
+  - mocha
+
+
